@@ -1,0 +1,218 @@
+/*
+ *David Ros y Alvaro Fraidias
+ *Prototipo 4.2
+ *02/05/2020 
+ * 
+ */
+
+package Vista;
+
+import Control.OyenteVista;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.BorderFactory;
+import javax.swing.Icon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.border.BevelBorder;
+import modelo.Posicion;
+import modelo.Viajero;
+
+public class AsientoVista extends JLabel {
+    private final String DATOS_VIAJERO = "Por favor rellene los siguientes datos:";
+    private final String NOMBRE_VIAJERO = "Nombre:";
+    private final String DNI_VIAJERO = "Dni:";
+    private final String ACEPTAR = "Aceptar";
+    private final int ANCHURA = 400;
+    private Viajero viajero;
+    private final int ALTURA = 150;
+    private Posicion posicion;
+    private OficinaVista oficina;
+    private int numero;
+    private boolean ocupado = false; 
+    private String nombreViajero = "";
+    private String DNIViajero = "";
+    private boolean esAsiento = false;
+    
+    private static final Color COLOR_SELECCIONADO = Color.YELLOW;
+    private Color colorNoSeleccionado;
+    private boolean seleccionado = false;
+    private static final Color COLOR_OCUPADO = Color.CYAN;
+
+    public AsientoVista(OficinaVista oficina, Posicion posicion, int numero, boolean recibeEventosRaton) {
+        this.posicion = posicion;
+        this.oficina = oficina;
+        this.numero = numero;
+        habilitar(true);
+        setHorizontalAlignment(SwingConstants.CENTER);
+        setOpaque(true);
+        setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
+        
+        if (recibeEventosRaton) {
+            recibirEventosRaton();
+        }  
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public boolean isOcupado() {
+        return ocupado;
+    }
+
+    public Viajero getViajero() {
+        return viajero;
+    }
+    
+    
+    
+    
+
+     
+   /**
+   * Habilita la casilla
+   * 
+   */
+  public void habilitar(boolean habilitacion) {
+    setEnabled(habilitacion);
+  }
+  
+  /**
+   * Devuelve la posición de la casilla
+   * 
+   */
+  public Posicion devuelvePosicion() {
+    return posicion;
+  } 
+  
+   /**
+   * Pone numero de asiento
+   * 
+   */    
+  public void ponerNumero(int numero) {
+    setText(String.valueOf(numero));
+    this.numero = numero;
+    esAsiento = true;
+  }
+  
+  /**
+   * Recibe los eventos de ratón
+   */  
+  private void recibirEventosRaton() {
+    addMouseListener(new MouseAdapter() { 
+      @Override
+      public void mousePressed(MouseEvent e) {     
+               AsientoVista asiento = (AsientoVista)e.getSource();                                 
+                oficina.seleccionarAsiento(asiento); 
+         
+         
+           
+      }
+
+      @Override
+      public void mouseEntered(MouseEvent e){     
+          if(ocupado){  
+            AsientoVista asiento = (AsientoVista)e.getSource();
+            oficina.verViajero(asiento);
+          }     
+        
+      }
+       
+    });    
+  }
+  
+    /**
+   * Selecciona asiento
+   */
+  public void seleccionar() {
+      if(esAsiento){
+       seleccionado = true;
+         setBackground(COLOR_SELECCIONADO);
+      }
+   
+    }   
+  
+  /**
+   * Quita selección asiento
+   */
+  public void deseleccionar() {
+    seleccionado = false;
+    if (! ocupado) {
+      setBackground(colorNoSeleccionado);
+    } else {
+      setBackground(COLOR_OCUPADO);  
+    }
+  }  
+
+  /**
+   * Ocupa un asiento
+   */
+  public void ocuparAsiento(Viajero viajero) {
+      
+        this.viajero = viajero;
+        ocupado = true;
+        setBackground(COLOR_OCUPADO);
+      
+  }  
+  
+  /**
+   * Desocupa un asiento
+   */
+  public void desocuparAsiento() {
+    ocupado = false;
+    viajero = null;
+    setBackground(colorNoSeleccionado);    
+  }  
+  
+   /**
+   * Inicia dia vista
+   */
+  public void iniciar() {
+    ponerTexto("");  
+    desocuparAsiento();    
+    deseleccionar();
+  }  
+
+  
+  /**
+   * Pone texto
+   */
+  public void ponerTexto(String texto) {
+    setText(texto);
+  }
+  /**
+   * Sobreescribe toString
+   * 
+   */  
+  @Override
+  public String toString() {
+    return posicion.toString();
+  } 
+
+    boolean isEsAsiento() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    boolean isEsAsiento() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+}
