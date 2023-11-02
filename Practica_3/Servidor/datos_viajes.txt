@@ -1,0 +1,5 @@
+424 0 Cadiz Valencia 04 02 2020
+425 1 Cadiz Castellon 04 02 2020
+426 2 Cadiz Ibiza 04 02 2020
+543 3 Zaragoza Madrid 13 04 2021
+123 4 Barcelona Teruel 07 05 2020
