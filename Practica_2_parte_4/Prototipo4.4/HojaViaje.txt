@@ -1,0 +1,24 @@
+Codigo Viaje: 0
+Lugar de origen: Cadiz
+Lugar destino: Valencia
+Fecha: 521
+Matricula: 424
+Numero: 1
+Numero: 2
+Numero: 3
+Numero: 4
+Numero: 5
+Numero: 6 --> DNI: dsf Nombre: cd
+Numero: 7
+Numero: 8
+Numero: 9
+Numero: 10
+Numero: 11
+Numero: 12
+Numero: 13
+Numero: 14
+Numero: 15
+Numero: 16
+Numero: 17
+Numero: 18
+Numero: 19
