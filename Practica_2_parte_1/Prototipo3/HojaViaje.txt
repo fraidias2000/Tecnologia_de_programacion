@@ -1,0 +1,23 @@
+Codigo Viaje: 1
+Lugar de origen: Zaragoza
+Lugar destino: Madrid
+Fecha: 521
+Matricula: 543
+Numero: 1 Libre 
+Numero: 2 Libre 
+Numero: 3 Libre 
+Numero: 4 Libre 
+Numero: 5 Libre 
+Numero: 6 Libre 
+Numero: 7 Libre 
+Numero: 8 Libre 
+Numero: 9 Libre 
+Numero: 10 Libre 
+Numero: 11 Libre 
+Numero: 12 Libre 
+Numero: 13 Libre 
+Numero: 14 Libre 
+Numero: 15 Libre 
+Numero: 16 Libre 
+Numero: 17 Libre 
+Numero: 18 Libre 
