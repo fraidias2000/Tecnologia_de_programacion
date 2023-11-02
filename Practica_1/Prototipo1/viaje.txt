@@ -1,0 +1,4 @@
+3
+424e 0 cadiz valencia 01:02:2000
+654g 1 madrid barcelona 01:02:2000
+764w 2 londres rumania 01:02:2000
